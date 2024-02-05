@@ -37,6 +37,8 @@ Start the server
 
 ## Deployment
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9ec530db-ca5e-4c85-ba16-419da60599d3/deploy-status)](https://app.netlify.com/sites/zankrut-recipe-app/deploys)
+
 Recipe App is deployed on netlify.
 Access the deployed app using link: [Recipe App](https://zankrut-recipe-app.netlify.app/)
 
