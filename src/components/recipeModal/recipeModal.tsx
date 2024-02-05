@@ -14,20 +14,27 @@ import {
   UnorderedList,
   ListItem,
   IconButton,
-  SimpleGrid,
   HStack,
 } from "@chakra-ui/react";
 import { AiFillStar } from "react-icons/ai";
 import { AiOutlineStar } from "react-icons/ai";
 import { useBookmarkStore } from "../../store/store";
+import { IRecipes } from "../../pages/home/home";
+import React from "react";
 
-const RecipeModal = (props: any) => {
+interface IRecipeModalProps {
+  recipe: IRecipes;
+  showRecipeModal: boolean;
+  setShowRecipeModal: (showFilterModal: boolean) => void;
+}
+
+const RecipeModal = (props: IRecipeModalProps) => {
   const { showRecipeModal, setShowRecipeModal, recipe } = props;
   const bookmarkedRecipes = useBookmarkStore((state) => state.recipes);
   const addRecipe = useBookmarkStore((state) => state.addRecipe);
   const removeRecipe = useBookmarkStore((state) => state.removeRecipe);
 
-  const handleClick = (e: any) => {
+  const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     const isAlreadyPresent = bookmarkedRecipes.find(
       (bookmarkedRecipe) => bookmarkedRecipe.label === recipe.label

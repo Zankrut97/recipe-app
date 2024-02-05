@@ -17,15 +17,23 @@ import { useNavigate } from "react-router-dom";
 import { usefilterStore } from "../../store/store";
 import Recipes from "../../components/recipes/recipes";
 
+export interface IRecipes {
+  id: string;
+  label: string;
+  calories: string;
+  image: string;
+  healthLabels: Array<string>;
+  dietLabels: Array<string>;
+  ingredientLines: Array<string>;
+}
+
 const Home = () => {
   const navigate = useNavigate();
-  //  const filterStore = use;
-  // const state = useLocation();
+
   const filters = usefilterStore((state) => state.filters);
   const value = usefilterStore((state) => state.value);
   const updateStore = usefilterStore((state) => state.updateStore);
 
-  // Create state variables
   const [showFilterModal, setShowFilterModal] = React.useState(false);
   const [recipes, setRecipes] = React.useState([]);
   const [nextRecipeRef, setNextRecipeRef] = React.useState("");

@@ -18,6 +18,7 @@ import {
 } from "@chakra-ui/react";
 import { usefilterStore } from "../../store/store";
 
+// interface for FilterModal Props
 interface IFilterModalProps {
   showFilterModal: boolean;
   setShowFilterModal: (showFilterModal: boolean) => void;
@@ -30,6 +31,11 @@ const FilterModal = (props: IFilterModalProps) => {
   const value = usefilterStore((state) => state.value);
   const updateStore = usefilterStore((state) => state.updateStore);
 
+  /**
+   * Updates filter store on form change
+   * @param key string
+   * @param data string | number)[]
+   */
   const handleFormChange = (key: string, data: (string | number)[]) => {
     const updatedFilters = data.length
       ? {

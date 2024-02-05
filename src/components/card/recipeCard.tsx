@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Image,
   Center,
@@ -10,21 +11,34 @@ import {
 import { AiFillStar } from "react-icons/ai";
 import { AiOutlineStar } from "react-icons/ai";
 import { useBookmarkStore } from "../../store/store";
-import React from "react";
 import RecipeModal from "../recipeModal/recipeModal";
+import { IRecipes } from "../../pages/home/home";
 
-const RecipeCard = (props: any) => {
+// interface for RecipeCard Props
+export interface IRecipeCardProps {
+  data: IRecipes;
+}
+
+const RecipeCard = (props: IRecipeCardProps) => {
   const { data } = props;
   const bookmarkedRecipes = useBookmarkStore((state) => state.recipes);
   const addRecipe = useBookmarkStore((state) => state.addRecipe);
   const removeRecipe = useBookmarkStore((state) => state.removeRecipe);
   const [showRecipeModal, setShowRecipeModal] = React.useState(false);
 
+  /**
+   * shows Card Modad on Click
+   */
   const handleCardClick = () => {
     setShowRecipeModal(!showRecipeModal);
   };
 
-  const handleClick = (e: any) => {
+  /**
+   * Handles bookmark
+   * if present removes recipe from bookmark store
+   * else adds recipe to bookmarstore
+   */
+  const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     const isAlreadyPresent = bookmarkedRecipes.find(
       (recipe) => recipe.label === data.label

@@ -12,9 +12,9 @@ import { useBookmarkStore } from "../../store/store";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Bookmark = () => {
-  const bookmarkedRecipes = useBookmarkStore((state) => state.recipes);
   const navigate = useNavigate();
 
+  const bookmarkedRecipes = useBookmarkStore((state) => state.recipes);
   const state = useLocation();
 
   const handleBack = () => {
