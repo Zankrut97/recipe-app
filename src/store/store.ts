@@ -23,12 +23,14 @@ interface FilterStore {
   updateStore: (filters: IApifilters, value: string) => void
 }
 
+/** Used to Store Bookmarked Recipes */
 export const useBookmarkStore = create<BookmarkStore>((set) => ({
   recipes: [],
   addRecipe: (item: IRecipe) => set((state) => ({ recipes: [...state.recipes, item] })),
   removeRecipe: (item: IRecipe) => set((state) => ({ recipes: state.recipes.filter((i) => i.label !== item.label) })),
 }));
 
+/** Used to Store Recipes Filters */
 export const usefilterStore = create<FilterStore>((set) => ({
   filters: {},
   value: '',

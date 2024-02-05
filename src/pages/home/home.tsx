@@ -29,6 +29,11 @@ const Home = () => {
   const [nextRecipeRef, setNextRecipeRef] = React.useState("");
   const [loadingRecipe, setLoadingRecipe] = React.useState(false);
 
+  React.useEffect(() => {
+    fetchData();
+  }, []);
+
+  /** Handles input change and updates store */
   const handleChange = (
     event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
   ) => updateStore(filters, event.target.value);
@@ -46,7 +51,7 @@ const Home = () => {
     return recipe;
   };
 
-  // fetches data
+  /** Fetches api data */
   const fetchData = async () => {
     setLoadingRecipe(true);
     const api = Api.getInstance();
@@ -63,10 +68,7 @@ const Home = () => {
     setLoadingRecipe(false);
   };
 
-  React.useEffect(() => {
-    fetchData();
-  }, []);
-
+  /** Fetches more data from api */
   const loadMoreData = async () => {
     if (nextRecipeRef == null) {
       return;
@@ -83,16 +85,19 @@ const Home = () => {
     setLoadingRecipe(false);
   };
 
+  /** Sets FilterModal visibility */
   const handleFilterModal = () => {
     setShowFilterModal(!showFilterModal);
   };
 
+  /** Navigates to Bookmark Page */
   const handleBookmark = () => {
     navigate("/bookmark", {
       state: { filters, value },
     });
   };
 
+  /** Handles Search input submit */
   const handleSubmit = () => {
     setShowFilterModal(false);
     fetchData();

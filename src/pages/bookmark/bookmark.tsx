@@ -17,12 +17,15 @@ const Bookmark = () => {
   const bookmarkedRecipes = useBookmarkStore((state) => state.recipes);
   const state = useLocation();
 
+  /** Navigates back to Home Page */
   const handleBack = () => {
     navigate("/", { state: state.state });
   };
 
+  /** checks bookmarked recipes in store */
   const isBookMarkedRecipesPresent =
     bookmarkedRecipes && bookmarkedRecipes.length > 0;
+
   return (
     <>
       <Button m={4} onClick={handleBack}>

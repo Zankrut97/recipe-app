@@ -41,6 +41,7 @@ class Api {
     throw error;
   }
 
+  /** Used for serializing array of parameters */
   handleQuery = (query: IApifilters) => {
     return Object.entries(query).filter(([key, value], i) => value).map(([key, value], i) => Array.isArray(value) ? `${key}=${value.join('&' + key + '=')}` : `${key}=${value}`).join('&');
   }
