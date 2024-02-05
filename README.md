@@ -55,3 +55,11 @@ Access the deployed app using link: [Recipe App](https://zankrut-recipe-app.netl
 | Axios                          | A promise-based HTTP library                                                  |
 | react-router, react-router-dom | Library for routing and route management                                      |
 | react-icons                    | icon library                                                                  |
+
+## Screenshots
+
+![alt text](<src/assets/screenshots/Screenshot 2024-02-05 at 4.07.14 PM.png>)
+![alt text](<src/assets/screenshots/Screenshot 2024-02-05 at 4.07.26 PM.png>)
+![alt text](<src/assets/screenshots/Screenshot 2024-02-05 at 4.07.38 PM.png>)
+![alt text](<src/assets/screenshots/Screenshot 2024-02-05 at 4.07.54 PM.png>)
+![alt text](<src/assets/screenshots/Screenshot 2024-02-05 at 4.07.58 PM.png>)
