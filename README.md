@@ -41,7 +41,7 @@ Recipe App is deployed on netlify.
 Access the deployed app using link: [Recipe App](https://zankrut-recipe-app.netlify.app/)
 
 ```bash
-  cd https://zankrut-recipe-app.netlify.app/
+  https://zankrut-recipe-app.netlify.app/
 ```
 
 ## Libraries Used
