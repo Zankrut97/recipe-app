@@ -8,7 +8,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import RecipeCard from "../../components/card/recipeCard";
-import { useBookmarkStore } from "../../store/store";
+import { IRecipe, useBookmarkStore } from "../../store/store";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Bookmark = () => {
@@ -42,7 +42,7 @@ const Bookmark = () => {
           </Flex>
 
           <SimpleGrid mt="10" columns={{ sm: 2, md: 3, lg: 4 }}>
-            {bookmarkedRecipes.map((recipe: any) => (
+            {bookmarkedRecipes.map((recipe: IRecipe) => (
               <RecipeCard key={recipe.id} data={recipe} />
             ))}
           </SimpleGrid>

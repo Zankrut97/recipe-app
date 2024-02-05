@@ -10,13 +10,12 @@ import {
 } from "@chakra-ui/react";
 import { AiFillStar } from "react-icons/ai";
 import { AiOutlineStar } from "react-icons/ai";
-import { useBookmarkStore } from "../../store/store";
+import { IRecipe, useBookmarkStore } from "../../store/store";
 import RecipeModal from "../recipeModal/recipeModal";
-import { IRecipes } from "../../pages/home/home";
 
 // interface for RecipeCard Props
 export interface IRecipeCardProps {
-  data: IRecipes;
+  data: IRecipe;
 }
 
 const RecipeCard = (props: IRecipeCardProps) => {

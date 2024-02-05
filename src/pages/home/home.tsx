@@ -17,16 +17,6 @@ import { useNavigate } from "react-router-dom";
 import { usefilterStore } from "../../store/store";
 import Recipes from "../../components/recipes/recipes";
 
-export interface IRecipes {
-  id: string;
-  label: string;
-  calories: string;
-  image: string;
-  healthLabels: Array<string>;
-  dietLabels: Array<string>;
-  ingredientLines: Array<string>;
-}
-
 const Home = () => {
   const navigate = useNavigate();
 
@@ -39,7 +29,9 @@ const Home = () => {
   const [nextRecipeRef, setNextRecipeRef] = React.useState("");
   const [loadingRecipe, setLoadingRecipe] = React.useState(false);
 
-  const handleChange = (event: any) => updateStore(filters, event.target.value);
+  const handleChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => updateStore(filters, event.target.value);
 
   const formatRecipeData = (item: any) => {
     const recipe = {

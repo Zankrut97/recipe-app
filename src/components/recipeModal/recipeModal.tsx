@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Modal,
   ModalBody,
@@ -18,12 +19,10 @@ import {
 } from "@chakra-ui/react";
 import { AiFillStar } from "react-icons/ai";
 import { AiOutlineStar } from "react-icons/ai";
-import { useBookmarkStore } from "../../store/store";
-import { IRecipes } from "../../pages/home/home";
-import React from "react";
+import { IRecipe, useBookmarkStore } from "../../store/store";
 
 interface IRecipeModalProps {
-  recipe: IRecipes;
+  recipe: IRecipe;
   showRecipeModal: boolean;
   setShowRecipeModal: (showFilterModal: boolean) => void;
 }

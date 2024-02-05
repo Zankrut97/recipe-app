@@ -1,8 +1,15 @@
 import React from "react";
 import { Center, Spinner, Text, SimpleGrid, Button } from "@chakra-ui/react";
 import RecipeCard from "../../components/card/recipeCard";
+import { IRecipe } from "../../store/store";
 
-const Recipes = (props: any) => {
+interface IRecipeProps {
+  recipes: IRecipe[];
+  loadingRecipe: boolean;
+  loadMoreData: () => void;
+}
+
+const Recipes = (props: IRecipeProps) => {
   const { recipes, loadingRecipe, loadMoreData } = props;
 
   if (loadingRecipe && (recipes == null || recipes.length === 0)) {

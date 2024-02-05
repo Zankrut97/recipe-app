@@ -1,19 +1,20 @@
 import { create } from 'zustand'
 import { IApifilters } from "../api/api";
 
-interface Recipe {
+export interface IRecipe {
   id: string;
   label: string;
   calories: string;
   image: string;
   healthLabels: Array<string>;
   dietLabels: Array<string>;
+  ingredientLines: Array<string>;
 }
 
 interface BookmarkStore {
-  recipes: Recipe[]
-  addRecipe: (item: Recipe) => void
-  removeRecipe: (item: Recipe) => void
+  recipes: IRecipe[]
+  addRecipe: (item: IRecipe) => void
+  removeRecipe: (item: IRecipe) => void
 }
 
 interface FilterStore {
@@ -24,8 +25,8 @@ interface FilterStore {
 
 export const useBookmarkStore = create<BookmarkStore>((set) => ({
   recipes: [],
-  addRecipe: (item: Recipe) => set((state) => ({ recipes: [...state.recipes, item] })),
-  removeRecipe: (item: Recipe) => set((state) => ({ recipes: state.recipes.filter((i) => i.label !== item.label) })),
+  addRecipe: (item: IRecipe) => set((state) => ({ recipes: [...state.recipes, item] })),
+  removeRecipe: (item: IRecipe) => set((state) => ({ recipes: state.recipes.filter((i) => i.label !== item.label) })),
 }));
 
 export const usefilterStore = create<FilterStore>((set) => ({
